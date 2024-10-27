@@ -1,0 +1,592 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>United States Geological Survey</origin>
+        <pubdate>20010501</pubdate>
+        <title>Surface Geology of Bangladesh (geo8bg)</title>
+        <geoform>Downloadable GIS Data</geoform>
+        <pubinfo>
+          <pubplace>Reston,VA</pubplace>
+          <publish>U.S. Geological Survey, Central Energy Resources Team</publish>
+        </pubinfo>
+        <lworkcit>
+          <citeinfo>
+            <origin>Persits, F.M., Wandrey, C.J., Milici, R.C., Manwar A.</origin>
+            <origin>Amy S. Karshbaum</origin>
+            <origin>Roland J. Viger</origin>
+            <pubdate>2001</pubdate>
+            <title>Digital Geologic and Geophysical Data of Bangladesh</title>
+            <geoform>Digital Maps</geoform>
+            <serinfo>
+              <sername>U.S. Geological Survey Open-File Report</sername>
+              <issue>OFR-97-470-H</issue>
+            </serinfo>
+            <pubinfo>
+              <pubplace>Denver, Colorado</pubplace>
+              <publish>U.S. Geological Survey, Central Energy Resources Team</publish>
+            </pubinfo>
+            <othercit>Geologic and Geophysical Data of Bangladesh is one of a series of
+CD-ROMs presenting small-scale digital geologic maps of the world
+published by the U.S. Geological Survey.</othercit>
+            <onlink>https://pubs.usgs.gov/of/1997/ofr-97-470/OF97-470H/</onlink>
+          </citeinfo>
+        </lworkcit>
+        <onlink>https://doi.org/10.5066/P9HZQA15</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This coverage includes arcs, polygons, and polygon labels that describe
+the geologic age and type of surface outcrops of bedrock of the
+Bangladesh. It also includes shorelines and inland water bodies.</abstract>
+      <purpose>To delineate geologic contacts and thematically depict geologic age of
+outcrops in Bangladesh. This shapefile is also used in an ArcExplorer
+project. The data provide government, geologic community, consultants, and
+the general public with an important geological base for small scale
+natural resource surveys, exploration and analysis.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>2001</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>Date of publication</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Not Planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>87.984932</westbc>
+        <eastbc>92.926903</eastbc>
+        <northbc>26.733309</northbc>
+        <southbc>20.552744</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>None</themekt>
+        <themekey>Geology</themekey>
+        <themekey>Age</themekey>
+        <themekey>Geologic age</themekey>
+        <themekey>Lithology</themekey>
+        <themekey>Oil</themekey>
+        <themekey>Gas</themekey>
+        <themekey>Digital geologic map</themekey>
+      </theme>
+      <theme>
+        <themekt>Gateway to the Earth Thesaurus</themekt>
+        <themekey>Oil shale resources</themekey>
+        <themekey>Oil sand resources</themekey>
+        <themekey>Natural gas resources</themekey>
+        <themekey>Economic geology</themekey>
+      </theme>
+      <theme>
+        <themekt>ArcIMS Metadata Server Theme Codes Thesaurus</themekt>
+        <themekey>geoscientificInformation</themekey>
+        <themekey>environment</themekey>
+      </theme>
+      <theme>
+        <themekt>USGS Energy Program Themes Thesaurus</themekt>
+        <themekey>Earth Science</themekey>
+        <themekey>Natural Resources</themekey>
+        <themekey>U.S. Geological Survey</themekey>
+        <themekey>USGS</themekey>
+        <themekey>Geology</themekey>
+        <themekey>Oil</themekey>
+        <themekey>Natural Gas</themekey>
+        <themekey>Petroleum</themekey>
+        <themekey>Resource Assessment</themekey>
+      </theme>
+      <theme>
+        <themekt>EnergyResourceActivities</themekt>
+        <themekey>oilgas</themekey>
+        <themekey>wep</themekey>
+        <themekey>worldgeologicmaps</themekey>
+        <themekey>bangladesh</themekey>
+      </theme>
+      <place>
+        <placekt>None</placekt>
+        <placekey>Bangladesh</placekey>
+        <placekey>South Asia</placekey>
+      </place>
+      <place>
+        <placekt>USGS Energy Program Petroleum Assessment Units</placekt>
+        <placekey>Ganges-Brahmaputra Delta, Province 8047</placekey>
+        <placekey>Permian Coal, Total Petroleum System 804701</placekey>
+        <placekey>Jalangi-Sylhet/Burdwan Composite, Total Petroleum System 804702</placekey>
+        <placekey>Jenam/Bhuban-Bokabil, Total Petroleum System 804703</placekey>
+        <placekey>Tertiary Composite Total Petroleum System</placekey>
+        <placekey>South Asia, Region 8</placekey>
+      </place>
+      <theme>
+        <themekt>USGS Metadata Identifier</themekt>
+        <themekey>USGS:60ad3fa3d34e4043c850f366</themekey>
+      </theme>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>Portions of this database covering coastline and country boundaries contain
+intellectual property of Environmental Systems Research Institute, Inc.
+(ESRI), and are used with their permission. End users are permitted to use
+these data sets for their own internal use, including derivative work, but
+are prohibited from using and redistributing these data individually or in a
+derivative work to third parties. Please refer to the "ATTACHMENT B" file
+(attach_b.txt) in the permssn directory of this CD-ROM for further
+information on ESRI's license agreement. ESRI is a registered trademark in
+the United States and either a trademark or registered trademark in all
+other countries where it is used, and ArcExplorer, Arc/Info, Arcview and
+Arcworld are trademarks of Environmental Systems Research, Inc.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey - CERSC Data Management Services Project</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Denver Federal Center, Building 25, Mail Stop 939</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>datamgt@usgs.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+    <browse>
+      <browsen>https://www.sciencebase.gov/catalog/file/get/60ad3fa3d34e4043c850f366?f=__disk__d7%2F88%2F3f%2Fd7883f7a8e8b8dab6a27966633c47bf6de493073</browsen>
+      <browset>JPEG</browset>
+    </browse>
+    <native>UNIX, ArcInfo 8.0.2 Windows 2000, Arcview 3.2</native>
+  </idinfo>
+  <dataqual>
+    <attracc>
+      <attraccr>All the attributes other than standard Arc/Info attributes are of
+character type.
+- Attribute item "GLG" is abstracted from fill colors and labels on source
+maps denoting geologic age of surficial outcrops. Areas colored as surface
+water bodies and ocean were attributed as "H2O". Unmapped areas without
+color were attributed as "U". Definitions for the values are found below
+in the entity and attribute information section.
+- Attribute item "TYPE" was abstracted from legend on the source maps to
+ease up selection of rock type (sedimentary, bedrock,etc.)
+- Attribute item "PATH" was aimed at hot links to images of legend
+description on original map.
+- Standard verification of attribute reliability was performed with the
+Arc/Info command LABELERRORS to find polygons without assigned character
+value or with more than one value.
+- Plots were created of the coverage, colored and labeled by item "GLG" at
+the same scale, projection and map extent of the source maps for the
+purposes of review and examination. Review was conducted by persons
+uninvolved in the compilation.
+- The plots were also examined by the compiler by sampling 2 degree by 2
+degree areas, yielding a deductive estimate of greater than 99 percent
+fidelity to source maps of items "GLG" and "TYPE".</attraccr>
+    </attracc>
+    <logic>Polygon topology. Each polygon has one unique label point with unique id,
+there are no dangles. Polygons are bounded at perimeter of extent, including
+areas attributed as water and where geologic age is not shown. The coverage
+has been topologically cleaned and built in Arc/Info 8.0.2.</logic>
+    <complete>DATA PROCESSING STEPS
+This map was compiled from Md. Khurshid Alam, A.K.M.Shahidul Hasan, and
+Mujibur Rahman Khan (Geological Survey of Bangladesh), and John W. Whitney
+(United States Geological Survey), 1990, Geological Map of Bangladesh:
+Geological Survey of Bangladesh Publication, scale 1:1,000,000.
+1. Original map was scanned on large format Ideal scanner in color mode with
+resolution 200 dpi.
+2. The scanned image was transformed to Lambert Conformal projection by
+ArcInfo REGISTER and RECTIFY utilities.
+3. Reference points for transformation were latitude-longitude crosses taken
+from paper map and compared with the same crosses projected to Lambert in
+ArcInfo PROJECT utility. Overall RMS error of transformationwas 250 m (0.25
+mm on original paper map).
+4. On-screen digitization was performed using a rectified image as a
+backdrop in ArcInfo ARCEDIT.
+5. Geological attributes were assigned to GLG item of Feature Attribute
+Table (FAT) of geology coverage.
+6. Base map data layers - rivers, lakes, cities - were digitized as separate
+coverages.
+7. All the ArcInfo coverages were projected to Geographic and converted into
+.E00 files, then imported to ArcView by IMPORT 71 utility and saved as shape
+files.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>1. Original geological map is of 100 m. maximum accuracy (0.1 mm on
+paper map of 1:1,000,000 scale).
+2. Scanned images are of 200 dot/inch resolution (0.1 mm on paper).
+Therefore fuzzy tolerance for CLEAN command in ARC/INFO was set to 300
+meters (three pixels).
+3. Several steps were taken to vectorize scanned images as follows:
+3.1. A latitude/longitude grid with cell size 1 * 1 degree was projected
+to Lambert Conformal Conic projection and then used to create an
+ARC/INFO point coverage. That point coverage was used as a reference for
+ArcInfo REGISTER and RECTIFY programs. Overall RMS error was 250m. The
+vectorized coverage was edited and attributed in Arcedit using the color
+image of the source map as a background guide.
+3.2. Polygon boundaries and geologic attributing of the ARC/INFO
+coverage were verified and corrected by comparing it with to the color
+image as a background. ESRI's ArcWorld 1:3M data set is too small in
+scale for position accuracy estimation since original map was of 1:
+1,000,000 scale,but  for estimating relative positional accuracy such a
+comparison has been performed. Overall relative position error was
+estimated by randomly selecting a set of locations on the ESRI World
+country coverage and comparing it with the state boundaries on the final
+geology coverage (b_geo). RMS error is 0.9 km (0.9 mm of the original
+paper map).</horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>Not Applicable</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Geological Survey of Bangladesh</origin>
+            <pubdate>1990</pubdate>
+            <title>Geological Map of Bangladesh</title>
+            <edition>N/A</edition>
+            <geoform>map</geoform>
+            <pubinfo>
+              <pubplace>Bhutatta Rhaban, 153 Pioneer Road, Segun Bagicha, Dhaka,1000</pubplace>
+              <publish>Geological Survey of Bangladesh</publish>
+            </pubinfo>
+          </citeinfo>
+        </srccite>
+        <srcscale>1000000</srcscale>
+        <typesrc>paper</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>unknown</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>publication date</srccurr>
+        </srctime>
+        <srccitea>Bangladesh</srccitea>
+        <srccontr>Geologic contacts, age and rock type.</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>Environmental Systems Research Institute, Inc. (ESRI)(comp.)</origin>
+            <pubdate>1995</pubdate>
+            <title>Arcworld 1:3M supplement cntry_95</title>
+            <pubinfo>
+              <pubplace>Redlands, CA, U.S.A.</pubplace>
+              <publish>Environmental Systems Research Institute, Inc. (ESRI)</publish>
+            </pubinfo>
+          </citeinfo>
+        </srccite>
+        <srcscale>3000000</srcscale>
+        <typesrc>CD-ROM</typesrc>
+        <srctime>
+          <timeinfo>
+            <sngdate>
+              <caldate>Unknown</caldate>
+            </sngdate>
+          </timeinfo>
+          <srccurr>Publication date</srccurr>
+        </srctime>
+        <srccitea>ESRI</srccitea>
+        <srccontr>Used as a guide to match coastlines and inland water bodies, and to
+verify locations</srccontr>
+      </srcinfo>
+      <srcinfo>
+        <srccite>
+          <citeinfo>
+            <origin>National Imagery and Mapping Agency</origin>
+            <pubdate>1997</pubdate>
+            <pubtime>unknown</pubtime>
+            <title>Vector Map Level 0 (VMAP0)</title>
+            <edition>003</edition>
+            <geoform>map</geoform>
+            <serinfo>
+              <sername>VMAP0</sername>
+              <issue>SASAUS</issue>
+            </serinfo>
+            <pubinfo>
+              <pubplace>USA</pubplace>
+              <publish>NIMA</publish>
+            </pubinfo>
+          </citeinfo>
+        </srccite>
+        <srcscale>1000000</srcscale>
+        <typesrc>CD-ROM</typesrc>
+        <srccitea>Base Map data</srccitea>
+        <srccontr>Geographic reference data</srccontr>
+      </srcinfo>
+      <procstep>
+        <procdesc>1. Original map was scanned on large format Ideal scanner in color mode
+with resolution 200 dpi.
+2. The scanned image was transformed to Lambert Conformal projection by
+ArcInfo REGISTER and RECTIFY utilities.
+3. Reference points for transformation were latitude-longitude crosses
+taken from paper map compared with the same crosses projected to Lambert
+in ArcInfo PROJECT utility. Overall RMS error of transformation was 250
+m (0.25 mm on original paper map).</procdesc>
+        <procdate>200009</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Arcs and labels were digitized on screen in Arcedit with a fuzzy
+tolerance of 300 meters and a weed tolerance of 100 meters, using the
+color image as a background guide. Features less than 200 meters in
+length or width were not captured. Features crossing the edges of
+original map source were adjusted to be continuous despite discrepencies
+in image registration and compilation between separate original map
+sheets.</procdesc>
+        <procdate>2000910</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Geologic attributes were assigned to GLG item of Feature Attribute Table
+(FAT) of geology coverage.</procdesc>
+        <procdate>20000921</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Duplicate and missing labels were identified with the LABELERRORS
+command.</procdesc>
+        <procdate>20000925</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>The master coverage was cleaned and built as a polygon coverage with a
+fuzzy tolerance of 300 meters.</procdesc>
+        <procdate>20000926</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Paper maps were plotted from Arcplot at the same scale and extent as the
+original map sources and distributed with the original map source sheets
+to be examined for the purposes of content review.</procdesc>
+        <procdate>20001100</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>The master coverage was edited in Arcedit, according to the results of
+the content reviews, adding or deleting arcs and labels as needed, and
+updating the attribution of labels as needed.</procdesc>
+        <procdate>20001105</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>The master coverage was cleaned and built as a polygon coverage with a
+fuzzy tolerance of 300 meters.</procdesc>
+        <procdate>20001110</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>The master coverage was projected to the current Geographic coordinates.</procdesc>
+        <procdate>20001115</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>The projected coverage was cleaned and built with a fuzzy tolerance of
+0.0005 degrees.</procdesc>
+        <procdate>20001115</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>The projected coverage was clipped to the current extent as a polygon
+coverage with a fuzzy tolerance of 300 meters.</procdesc>
+        <procdate>20001120</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Coverage was converted to Arcview shapefile in
+Arcview 3.2.</procdesc>
+        <procdate>19990215</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Text area on original map was scanned in gray-scale mode with resolution
+200 dpi. Tiff image was split into several pieces to accomodate logical
+legend parts like type of sedimentary rocks.</procdesc>
+        <procdate>20010300</procdate>
+      </procstep>
+      <procstep>
+        <procdesc>Items "path" and "source" were added to Feature Attribute Table of
+Geology theme in ArcView Project. Items were populated by full path
+names pointed to locations of corresponding images.</procdesc>
+        <procdate>20010310</procdate>
+      </procstep>
+    </lineage>
+  </dataqual>
+  <spdoinfo>
+    <direct>Vector</direct>
+    <ptvctinf>
+      <sdtsterm>
+        <sdtstype>GT-polygon composed of chains</sdtstype>
+        <ptvctcnt>12332</ptvctcnt>
+      </sdtsterm>
+    </ptvctinf>
+  </spdoinfo>
+  <spref>
+    <horizsys>
+      <geograph>
+        <latres>0.002</latres>
+        <longres>0.002</longres>
+        <geogunit>Decimal degrees</geogunit>
+      </geograph>
+      <geodetic>
+        <horizdn>D_WGS_1984</horizdn>
+        <ellips>WGS_1984</ellips>
+        <semiaxis>6378137.000000</semiaxis>
+        <denflat>298.257224</denflat>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>Theme in internet map service - "geo8bg.shp"</enttypl>
+        <enttypd>Surface Geology of Bangladesh</enttypd>
+        <enttypds>Geological Survey of Bangladesh</enttypds>
+      </enttyp>
+      <attr>
+        <attrlabl>type</attrlabl>
+        <attrdef>Unique type of glg items values</attrdef>
+        <attrdefs>USGS</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>U, bed, lake, sed, water</edomv>
+            <edomvd>U - areas out of Bangladesh state boundaries
+bed - bedrock
+lake - lakes
+sed - sedimentary rocks
+water - water bodies</edomvd>
+            <edomvds>Geological Survey of
+Bangladesh</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>Glg</attrlabl>
+        <attrdef>Code denoting geologic age or composition depicted on original source
+maps.</attrdef>
+        <attrdefs>U.S. Geological Survey</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>csd, dsw, dm, dt, de, dsl, dsd, ppc, asd, asl, asc, ac, ava, afy,
+afo, rb, rm, Qsm, QTdd,QTdi, QTdt, QTg, Tt, Tbb, Tb, Tba, Tj, Lakes,
+H20, U</edomv>
+            <edomvd>Range of values taken from source map values:
+"csd - Beach and dune sand"
+"dsw - Mangrove swamp deposit"
+"dm - Tidal mud"
+"dt - Tidal deltaic deposits"
+"de - Estuarine deposits"
+"dsl - Deltaic silt"
+"dsd - Deltaic sand"
+"ppc - Marsh clay and peat"
+"asd - Alluvial sand"
+"asl - Alluvial silt"
+"asc - Alluvial silt and clay"
+"ac - Chandina alluvium"
+"ava - Valley alluvium and colluvium"
+"afy - Young gravelly sand"
+"afo - Old gravelly sand"
+"rb - Barind clay residuum"
+"rm - Madhupur clay residuum
+"Qsm - St. Marin limestone (Pleistocene)"
+"QTdd - Dihing and Dupi Tila Formation Undivided"
+"QTdi - Dihing Formation (Pleistocene and Pliocene)"
+"QTdt - Dupi Tila Formation (Pleistocene and Pliocene)"
+"QTg - Girujan Clay (Pleistocene and Neogene)"
+"Tt - Tipam Sandstone (Neogene)"
+"Tbb - Boka Bil Formation (Neogene)"
+"Tb - Bhuban Formation (Miocene)"
+"Tba - Barail Formation (Oligocene)"
+"Tj - Jaintia Group"
+"Lakes" - "Lakes"
+"H20" - "Ocean and wide rivers"
+"U" - "Unmapped area"</edomvd>
+            <edomvds>Geological Survey of
+Bangladesh</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>path</attrlabl>
+        <attrdef>String with full path name to image, containing corresponding text
+description from source map legend.</attrdef>
+        <attrdefs>U.S. Geological Survey</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>List of tiff images have file names like
+"bangla/images/all_fan.tif", etc.</edomv>
+            <edomvd>
+            </edomvd>
+            <edomvds>U.S. Geological Survey</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>source</attrlabl>
+        <attrdef>Full path name to tif image file: "bangla/images/refer.tif"</attrdef>
+        <attrdefs>U.S. Geological Survey</attrdefs>
+        <attrdomv>
+          <edom>
+            <edomv>Single value</edomv>
+            <edomvd>
+            </edomvd>
+            <edomvds>U.S. Geological Survey</edomvds>
+          </edom>
+        </attrdomv>
+      </attr>
+    </detailed>
+  </eainfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey - ScienceBase</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Denver Federal Center, Building 810, Mail Stop 302</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>sciencebase@usgs.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <resdesc>Downloadable Data</resdesc>
+    <distliab>Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS), no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall the act of distribution constitute any such warranty.</distliab>
+    <stdorder>
+      <digform>
+        <digtinfo>
+          <formname>Shapefile</formname>
+        </digtinfo>
+        <digtopt>
+          <onlinopt>
+            <computer>
+              <networka>
+                <networkr>https://doi.org/10.5066/P9HZQA15</networkr>
+              </networka>
+            </computer>
+          </onlinopt>
+        </digtopt>
+      </digform>
+    </stdorder>
+  </distinfo>
+  <metainfo>
+    <metd>20210525</metd>
+    <metrd>20040617</metrd>
+    <metc>
+      <cntinfo>
+        <cntorgp>
+          <cntorg>U.S. Geological Survey - CERSC Data Management Services Project</cntorg>
+        </cntorgp>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>Denver Federal Center, Building 25, Mail Stop 939</address>
+          <city>Denver</city>
+          <state>CO</state>
+          <postal>80225</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>1-888-275-8747</cntvoice>
+        <cntemail>datamgt@usgs.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>FGDC Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+  </metainfo>
+</metadata>
