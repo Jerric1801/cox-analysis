@@ -1,0 +1,27 @@
+Landslide_ID
+Camp_name
+Latitude
+Longitude
+Elevation (m)
+Date_of_movement
+General_slope (degree)
+Slided_slope (degree)
+Width (m)
+Length_prev (m)
+Length_after (m)
+Depth (m)
+Material
+Movement_type
+State
+Distribution
+Style
+Flow_accumulation_10yr_multiplied_log
+Flow_accumulation_20yr_multiplied_log
+Flow_accumulation_50yr_multiplied_log
+Slope_classification
+Flow_direction
+Runoff_10yr
+Runoff_20yr
+Runoff_50yr
+Fill_sinks
+Basins
