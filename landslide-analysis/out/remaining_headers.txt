@@ -1,0 +1,27 @@
+Landslide_
+Camp_name
+Latitude
+Longitude
+Elevation
+Date_of_mo
+General_sl
+Slided_slo
+Width (m)
+Length_pre
+Length_aft
+Depth (m)
+Material
+Movement_t
+State
+Distributi
+Style
+accumulati
+accumula_1
+accumula_2
+slope_clas
+flow_direc
+10yr_runof
+20yr_runof
+50yr_runof
+fill_sinks
+basins1
