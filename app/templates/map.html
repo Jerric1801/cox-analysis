@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rohingya Rescue Route</title>
+    {{ map | safe }}
+</head>
+<body>
+    <h1>Rohingya Rescue Route</h1>
+    <form method="POST">
+        <div>
+            <label for="origin">Origin:</label>
+            <input type="text" name="origin" id="origin" value="A"> 
+        </div>
+        <div>
+            <label for="destination">Destination:</label>
+            <input type="text" name="destination" id="destination" value="D"> 
+        </div>
+        <button type="submit">Calculate Route</button>
+    </form>
+
+    <div id="map">
+        {{ map | safe }}
+    </div>
+</body>
+</html>

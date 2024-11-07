@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = "Optimising Healthcare Accessibility Amidst the Ongoing Rohingya Crisis"
+authors = ["Jerric1801 <Jerric1801@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Flask = "^3.0.3"
+pandas = "^2.2.3"
+networkx = "^3.4.2"
+folium = "^0.18.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
