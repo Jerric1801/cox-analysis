@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Rohingya Rescue Route</title>
-    {{ map | safe }}
+    <link rel="stylesheet" href="../static/style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
 </head>
-<body>
-    <h1>Rohingya Rescue Route</h1>
-    <form method="POST">
-        <div>
-            <label for="origin">Origin:</label>
-            <input type="text" name="origin" id="origin" value="A"> 
-        </div>
-        <div>
-            <label for="destination">Destination:</label>
-            <input type="text" name="destination" id="destination" value="D"> 
-        </div>
-        <button type="submit">Calculate Route</button>
-    </form>
 
-    <div id="map">
-        {{ map | safe }}
+<body>
+    <div class="container">
+        <div class="inputs-container">
+            <div class="simulator">
+                <h2>Simulator</h2>
+                <div>
+                    <label for="rainfall">Rainfall (mm):</label>
+                    <input type="range" id="rainfall" name="rainfall" min="0" max="300" value="0">
+                    <span id="rainfall-value">0</span>
+                </div>
+            </div>
+    
+            <div class="input-section">
+                <h2>Input</h2>
+                <form method="POST">
+                    <div>
+                        <label for="origin">Origin:</label>
+                        <input type="text" name="origin" id="origin" value="A">
+                    </div>
+                    <div>
+                        <label for="destination">Destination:</label>
+                        <input type="text" name="destination" id="destination" value="D">
+                    </div>
+                    <button type="submit">Calculate Route</button>
+                </form>
+            </div>
+        </div>
+       
+
+        <div class="map">
+            <div id="map-container">
+                {{ map | safe }}
+            </div>
+        </div>
+
+
     </div>
+
+    <script>
+        // JavaScript to update rainfall value display (optional)
+        const rainfallSlider = document.getElementById('rainfall');
+        const rainfallValue = document.getElementById('rainfall-value');
+        rainfallSlider.addEventListener('input', () => {
+            rainfallValue.textContent = rainfallSlider.value;
+        });
+    </script>
 </body>
+
 </html>
