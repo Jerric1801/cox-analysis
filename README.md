@@ -1,55 +1,64 @@
-🚑 Dynamic Routing for Emergency Response in Rohingya Refugee Camps
+# Dynamic Routing System for Emergency Response in Rohingya Refugee Camps
+
 -------------------------------------------------------------------
+SMT481 Smart City Operations Research Final Project. Done by G1T2 AY24/25.
 
-This project aims to optimize emergency healthcare and rescue recovery in Rohingya refugee camps by developing a dynamic routing system. This system integrates probabilistic models of floods 🌧️ and landslides ⛰️ with network optimization algorithms to ensure the fastest and safest routes for emergency vehicles 🚑💨.
+## Project Overview
 
-Here's how it works:
+This project implements a cutting-edge dynamic routing system designed to optimize emergency healthcare and rescue operations in Rohingya refugee camps. Developed as part of SMT481 Smart City Operations Research Final Project, this solution integrates advanced probabilistic models and network optimization algorithms to ensure rapid and safe emergency vehicle deployment during disasters.
 
-1.  Data Acquisition and Preparation 📊
+## Key Features
 
-    -   Gather data on camp locations, road networks, elevation, health facilities, historical rainfall, flood risk zones, landslide susceptibility, and disease prevalence from sources like UNHCR, OpenStreetMap, USGS, and WHO.
-    -   Clean, convert, and aggregate the data for analysis.
+- **Dynamic Routing**: Adapts to real-time environmental changes and evolving emergency scenarios.
+- **Probabilistic Scenario Modeling**: Utilizes statistical analysis and GIS techniques to predict and prepare for various emergency situations.
+- **Optimized Network Representation**: Leverages graph theory and network analysis to model camp environments and identify critical infrastructure.
+- **Real-time Optimization**: Implements advanced algorithms for continuous route recalibration based on changing conditions.
+- **Scalable Simulation Engine**: Enables comprehensive scenario testing and performance evaluation.
 
-2.  Probabilistic Scenario Modeling 🔮
+## Technical Approach
 
-    -   Analyze historical data and expert knowledge to generate diverse emergency scenarios (floods, landslides, disease outbreaks) with varying probabilities and impacts.
-    -   Utilize statistical models and GIS techniques to identify high-risk areas and potential disruptions to the road network.
+1.  **Data Acquisition and Preparation**
+   - Collects and processes geospatial data from UNHCR, OpenStreetMap, USGS, and WHO sources.
+   - Cleans, aggregates, and formats data for efficient analysis.
 
-3.  Network Representation and Impact Assessment 🗺️
+2.  **Probabilistic Scenario Modeling**
+   - Develops statistical models to forecast flood risk zones, landslide susceptibility, and disease prevalence.
+   - Implements GIS-based tools for visualizing high-risk areas and potential disruptions.
 
-    -   Represent the camp environment as a network with nodes (camps, health facilities) and edges (roads).
-    -   Assess the impact of each scenario on accessibility, population displacement, and healthcare needs.
+3.  **Network Representation and Impact Assessment**
+   - Constructs graph representations of camp environments using NetworkX.
+   - Analyzes impact of scenarios on accessibility, population displacement, and healthcare needs.
 
-4.  Optimization Model Formulation 🎯
+4. **Optimization Model Formulation**
+   - Defines objectives (minimize response time, maximize coverage) and constraints (road closures, resource limitations).
+   - Implements mathematical models for emergency vehicle routing and resource allocation.
 
-    -   Define objectives (minimize response time, maximize coverage) and constraints (road closures, resource limitations).
-    -   Formulate a mathematical model to optimize emergency vehicle routing and resource allocation.
-5.  Algorithm Selection and Implementation 💡
+5. **Algorithm Selection and Implementation**
+   - Employs Dijkstra's algorithm, A*, and Genetic Algorithms for optimal route finding.
+   - Integrates optimization solvers for real-time decision making.
 
-    -   Select appropriate algorithms (Dijkstra's, A*, Genetic Algorithms) to find optimal routes in real-time.
-    -   Implement the algorithms using libraries like NetworkX and optimization solvers.
+6. **Simulation and Evaluation**
+   - Develops comprehensive simulation framework for scenario testing.
+   - Implements performance metrics and sensitivity analysis tools.
 
-6.  Simulation and Evaluation 🧪
+7. **Refinement and Deployment**
+   - Conducts user feedback sessions with emergency responders and community members.
+   - Refines system based on evaluation results and real-world performance data.
+   - Deploys system for operational use and implements continuous monitoring and improvement processes.
 
-    -   Simulate numerous scenarios to evaluate system performance using metrics like response times, coverage, and resource utilization.
-    -   Conduct sensitivity analysis to assess the system's robustness.
+## Implementation Details
 
-7.  Refinement and Deployment 🚀
+- Primary technologies used: Python, NetworkX, optimization libraries (e.g., PuLP, CVXPY)
+- Data processing: Pandas, Geopandas
+- Visualization: Matplotlib, Plotly
+- Simulation framework: Custom-built using Python and network analysis libraries
 
-    -   Gather feedback from emergency responders and the community.
-    -   Refine the system based on feedback and evaluation results.
-    -   Deploy the system for real-world use and continuously monitor its performance.
+## Future Enhancements
 
-Key Features:
+- Integration with IoT sensors for real-time environmental data
+- Machine learning models for predictive maintenance of critical infrastructure
+- Blockchain-based secure data sharing platform for emergency response coordination
 
--   Dynamic Routing: Adapts to changing conditions
--   Probabilistic Scenario Modeling: Accounts for uncertainty and diverse emergencies.
--   Optimization Algorithms: Ensures efficient resource allocation and response times.
--   Simulation and Evaluation: Rigorous testing to guarantee effectiveness.
+## License
 
-This system will help:
-
--   Save lives: By enabling faster and more efficient emergency response.
--   Improve healthcare access: Especially during crises.
--   Enhance disaster preparedness: By providing a tool for planning and resource allocation.
--   Empower communities: By incorporating their feedback into the system.
+This project is licensed under the MIT License.
