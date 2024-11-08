@@ -1,11 +1,10 @@
 # Dynamic Routing System for Emergency Response in Rohingya Refugee Camps
 
 -------------------------------------------------------------------
-SMT481 Smart City Operations Research Final Project. Done by G1T2 AY24/25.
 
 ## Project Overview
 
-This project implements a cutting-edge dynamic routing system designed to optimize emergency healthcare and rescue operations in Rohingya refugee camps. Developed as part of SMT481 Smart City Operations Research Final Project, this solution integrates advanced probabilistic models and network optimization algorithms to ensure rapid and safe emergency vehicle deployment during disasters.
+This project implements a cutting-edge dynamic routing system designed to optimize emergency healthcare and rescue operations in Rohingya refugee camps. Developed as part of SMT481 Smart City Operations Research Final Project by G1T2 AY24/25, this solution integrates advanced probabilistic models and network optimization algorithms to ensure rapid and safe emergency vehicle deployment during disasters.
 
 ## Key Features
 
@@ -17,15 +16,15 @@ This project implements a cutting-edge dynamic routing system designed to optimi
 
 ## Technical Approach
 
-1.  **Data Acquisition and Preparation**
+1. **Data Acquisition and Preparation**
    - Collects and processes geospatial data from UNHCR, OpenStreetMap, USGS, and WHO sources.
    - Cleans, aggregates, and formats data for efficient analysis.
 
-2.  **Probabilistic Scenario Modeling**
+2. **Probabilistic Scenario Modeling**
    - Develops statistical models to forecast flood risk zones, landslide susceptibility, and disease prevalence.
    - Implements GIS-based tools for visualizing high-risk areas and potential disruptions.
 
-3.  **Network Representation and Impact Assessment**
+3. **Network Representation and Impact Assessment**
    - Constructs graph representations of camp environments using NetworkX.
    - Analyzes impact of scenarios on accessibility, population displacement, and healthcare needs.
 
@@ -46,6 +45,7 @@ This project implements a cutting-edge dynamic routing system designed to optimi
    - Refines system based on evaluation results and real-world performance data.
    - Deploys system for operational use and implements continuous monitoring and improvement processes.
 
+
 ## Implementation Details
 
 - Primary technologies used: Python, NetworkX, optimization libraries (e.g., PuLP, CVXPY)
@@ -61,4 +61,4 @@ This project implements a cutting-edge dynamic routing system designed to optimi
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 
