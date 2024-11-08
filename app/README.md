@@ -1,6 +1,7 @@
-# Rohingya Rescue App
+# Cox's Bazar Disaster Simulator App
 
-This application optimizes healthcare accessibility amidst the ongoing Rohingya crisis using Flask, Pandas, NetworkX, and Folium.
+This application is designed to streamline evacuation planning in response to the Rohingya Refugee crisis in Cox's Bazar. Leveraging Flask, Pandas, NetworkX, and Folium, it simulates optimized routes to improve emergency response and evacuation efficiency.
+
 
 ## Prerequisites
 
