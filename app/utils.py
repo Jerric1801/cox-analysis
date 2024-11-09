@@ -16,16 +16,31 @@ def calculate_optimal_route(graph, origin, destination, fmap, frisk, lrisk):
     total_time = nx.dijkstra_path_length(graph, origin, destination, weight='weight')
     return path, total_time
 
-def convert_time(total_minutes):
-  """Converts total time in minutes (float) to hours, minutes, and seconds.
+def convert_time(total_hours):
+  """Converts total time in hours (float) to hours, minutes, and seconds.
 
   Args:
-    total_minutes: The total time in minutes as a float.
+    total_hours: The total time in hours as a float.
 
   Returns:
     A string representing the time in HH:MM:SS format.
   """
-  hours = int(total_minutes // 60)
-  minutes = int(total_minutes % 60)
-  seconds = int((total_minutes - int(total_minutes)) * 60)
+  hours = int(total_hours)
+  minutes = int((total_hours - hours) * 60)
+  seconds = int(((total_hours - hours) * 60 - minutes) * 60)
   return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+
+
+def normalize_DN_mean(DN_mean):
+  """Normalizes DN_mean values to a 0-1 range.
+
+  Args:
+    DN_mean: The original DN_mean value.
+
+  Returns:
+    The normalized DN_mean value between 0 and 1.
+  """
+  min_value = 6.5
+  max_value = 9
+  normalized_value = (DN_mean - min_value) / (max_value - min_value)
+  return normalized_value

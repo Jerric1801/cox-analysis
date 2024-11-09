@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import networkx as nx
 import folium
-from utils import Vij, calculate_optimal_route, convert_time  # Assuming utils.py contains your existing functions
+from utils import Vij, calculate_optimal_route, convert_time, normalize_DN_mean # Assuming utils.py contains your existing functions
 
 app = Flask(__name__)
 
@@ -25,15 +25,16 @@ def calculate_edge_time(row, speed, scenario):  # Add scenario argument
 
     # --- Parameters ---
     Sij = speed 
-    fmap = {"10yr": 0.63, "20yr": 0.86, "50yr": 0.95}[scenario] 
-    frisk = row["DN_mean"]/10  if row["DN_mean"]> 0 else 0.1
+    fmap = {"10yr": 0.95, "20yr": 0.86, "50yr": 0.63}[scenario] 
+    frisk = normalize_DN_mean(row["DN_mean"]) if row["DN_mean"] > 0 else 0.1 
 
     # lrisk = row["l_risk"]  
     lrisk = 0.1
-    alpha, beta, gamma = 0.5, 0.3, 0.2  
+    alpha, beta, gamma = 0.7, 0.3, 0.2  
 
     # --- Adjusted Velocity Function ---
-    Vij = Sij * (1 - alpha * fmap) * (1 - beta * frisk) * (1 - gamma * lrisk) 
+    # Vij = Sij * (1 - alpha * fmap) * (1 - beta * frisk) * (1 - gamma * lrisk) 
+    Vij = Sij * (1 - alpha * fmap) * (1 - beta * frisk)
 
     # --- Time Calculation ---
     time_taken = row["length"] / Vij 
