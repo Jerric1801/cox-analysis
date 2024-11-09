@@ -1,4 +1,5 @@
 import os
+import time
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import networkx as nx
@@ -36,7 +37,7 @@ def calculate_edge_time(row, speed, scenario):  # Add scenario argument
 
     # --- Time Calculation ---
     time_taken = row["length"] / Vij 
-    
+
     return time_taken
 
 def create_graph(rainfall, speed):
@@ -78,6 +79,12 @@ def add_route_to_map(m, G, path):
         folium.PolyLine([start_coords, end_coords], color="blue", weight=2.5, opacity=1).add_to(m)
     return m
 
+def heuristic(a, b, G):  # Add G as argument
+    a_x, a_y = G.nodes[a]['pos']
+    b_x, b_y = G.nodes[b]['pos']
+    return ((a_x - b_x) ** 2 + (a_y - b_y) ** 2) ** 0.5
+
+
 # --- Flask Routes ---
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -94,11 +101,28 @@ def index():
         origin = int(request.form["origin"])
         destination = int(request.form["destination"])
         speed = int(request.form["speed"])
+        
+        print(request.form)
+        if "algorithm" in request.form:  # Check if checkbox is checked
+            algorithm = "heuristic"  
+        else:
+            algorithm = "dijkstra"
+
 
         G = create_graph(rainfall, speed)
 
         try:
-            path = nx.shortest_path(G, source=origin, target=destination, weight="time")
+            start_time = time.time()
+            if algorithm == "dijkstra":
+                path = nx.shortest_path(G, source=origin, target=destination, weight="time")
+            elif algorithm == "heuristic":
+                path = nx.astar_path(G, source=origin, target=destination, heuristic=lambda a, b: heuristic(a, b, G), weight="time") 
+            else:
+                return "Invalid algorithm selected."
+            
+            end_time = time.time()  # Record end time
+            execution_time = end_time - start_time 
+
             total_time = nx.shortest_path_length(G, source=origin, target=destination, weight="time")
             
             path_edges = list(zip(path, path[1:]))
@@ -133,7 +157,8 @@ def index():
                 destination=destination, 
                 path=path, 
                 total_time=total_time,
-                edges_data=edges_data
+                edges_data=edges_data,
+                execution_time=round(execution_time,3)
             )
 
         except nx.NetworkXNoPath:

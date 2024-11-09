@@ -26,6 +26,17 @@
                         <span id="rainfall-value">0</span> mm/hour
                     </div>
 
+                    <div class="toggle-container">
+                        <label for="algorithm-toggle">Algorithm:</label>
+                        <label class="switch">
+                            <input type="checkbox" id="algorithm-toggle" name="algorithm" value="heuristic">
+                            <span class="slider round">
+                            </span>
+                            <span class="label off">Dijkstra</span>
+                            <span class="label on">Heuristic</span>
+                        </label>
+                    </div>
+
                     <div class="input-section">
                         <h2>Input</h2>
                         <p>e.g. 2222, 9773</p>
@@ -66,6 +77,7 @@
                 <p>Destination: {{ destination }}</p>
                 <p>Shortest Path: {{ path }}</p>
                 <p>Total Time: {{ total_time }} minutes</p>
+                <p>Execution Time: {{ execution_time }} minutes</p>
 
                 <table>
                     <thead>
