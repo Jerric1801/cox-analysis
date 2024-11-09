@@ -1,55 +1,82 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Rohingya Rescue Route</title>
-    <link rel="stylesheet" href="../static/style/style.css">
+    <link rel="stylesheet" href="../static/style/style.css"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <div class="container">
         <div class="inputs-container">
             <div class="simulator">
                 <h2>Simulator</h2>
-                <div class="simulator-rainfall">
-                    <label for="rainfall">Rainfall (mm):</label>
-                    <input type="range" id="rainfall" name="rainfall" min="0" max="300" value="0">
-                    <span id="rainfall-value">0</span>
-                </div>
-            </div>
-    
-            <div class="input-section">
-                <h2>Input</h2>
-                <form method="POST">
-                    <div>
-                        <label for="origin">Origin:</label>
-                        <input type="text" name="origin" id="origin" value="A">
+                <form method="POST" action="/">  
+                    <div class="simulator-rainfall">
+                        <label for="rainfall">Rainfall (mm):</label>
+                        <input type="range" id="rainfall" name="rainfall" min="0" max="300" value="0">
+                        <span id="rainfall-value">0</span> mm
                     </div>
-                    <div>
-                        <label for="destination">Destination:</label>
-                        <input type="text" name="destination" id="destination" value="D">
+
+                    <div class="input-section">
+                        <h2>Input</h2>
+                        <div>
+                            <label for="origin">Origin Node ID:</label> 
+                            <input type="number" name="origin" id="origin" required> 
+                        </div>
+                        <div>
+                            <label for="destination">Destination Node ID:</label> 
+                            <input type="number" name="destination" id="destination" required> 
+                        </div>
+                        <button type="submit">Calculate Route</button>
                     </div>
-                    <button type="submit">Calculate Route</button>
                 </form>
             </div>
-        </div>
-       
 
-        <div class="map">
-            <div id="map-container">
-                {{ map | safe }}
+            <div class="map">
+                <div id="map-container">
+                    {% if map %}
+                        {{ map | safe }}
+                    {% endif %}
+                </div>
             </div>
         </div>
 
+        {% if edges_data %}
+        <div class="results">
+            <h2>Route Results</h2>
+            <p>Rainfall: {{ rainfall }} mm</p>
+            <p>Origin: {{ origin }}</p>
+            <p>Destination: {{ destination }}</p>
+            <p>Shortest Path: {{ path }}</p>
+            <p>Total Time: {{ total_time }} minutes</p>
 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Edge</th>
+                        <th>Length (km)</th>
+                        <th>Time (minutes)</th>
+                        <th>Scenario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for edge_data in edges_data %}
+                    <tr>
+                        <td>{{ edge_data.edge }}</td>
+                        <td>{{ edge_data.length }}</td>
+                        <td>{{ edge_data.time }}</td>
+                        <td>{{ edge_data.scenario }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
     </div>
 
     <script>
-        // JavaScript to update rainfall value display (optional)
         const rainfallSlider = document.getElementById('rainfall');
         const rainfallValue = document.getElementById('rainfall-value');
         rainfallSlider.addEventListener('input', () => {
@@ -57,5 +84,4 @@
         });
     </script>
 </body>
-
 </html>

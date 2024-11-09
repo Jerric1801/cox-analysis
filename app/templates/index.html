@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rohingya Rescue Route</title>
+    <link rel="stylesheet" href="../static/style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="inputs-container">
+            <div class="simulator">
+                <h2>Simulator</h2>
+                <div class="simulator-rainfall">
+                    <label for="rainfall">Rainfall (mm):</label>
+                    <input type="range" id="rainfall" name="rainfall" min="0" max="300" value="0">
+                    <span id="rainfall-value">0</span>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <h2>Input</h2>
+                <form method="POST">
+                    <div>
+                        <label for="origin">Origin Node ID:</label> 
+                        <input type="number" name="origin" id="origin" required> 
+                    </div>
+                    <div>
+                        <label for="destination">Destination Node ID:</label> 
+                        <input type="number" name="destination" id="destination" required> 
+                    </div>
+                    <button type="submit">Calculate Route</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map">
+            <div id="map-container">
+                {% if map %}
+                    {{ map | safe }}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rainfallSlider = document.getElementById('rainfall');
+        const rainfallValue = document.getElementById('rainfall-value');
+        rainfallSlider.addEventListener('input', () => {
+            rainfallValue.textContent = rainfallSlider.value;
+        });
+    </script>
+</body>
+</html>
