@@ -1,87 +1,105 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Rohingya Rescue Route</title>
-    <link rel="stylesheet" href="../static/style/style.css"> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-shpfile@latest/dist/leaflet-shpfile.js"></script>
+    <link rel="stylesheet" href="../static/style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <script src="../static/scripts/index.js"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="inputs-container">
             <div class="simulator">
                 <h2>Simulator</h2>
-                <form method="POST" action="/">  
+                <form method="POST" action="/">
                     <div class="simulator-rainfall">
-                        <label for="rainfall">Rainfall (mm):</label>
-                        <input type="range" id="rainfall" name="rainfall" min="0" max="300" value="0">
-                        <span id="rainfall-value">0</span> mm
+                        <label for="rainfall">Rainfall (mm/hour):</label> 
+                        <input type="range" id="rainfall" name="rainfall" min="0" max="250000" value="0" step="1000">
+                        <span id="rainfall-value">0</span> mm/hour
                     </div>
 
                     <div class="input-section">
                         <h2>Input</h2>
+                        <p>e.g. 2222, 9773</p>
                         <div>
-                            <label for="origin">Origin Node ID:</label> 
-                            <input type="number" name="origin" id="origin" required> 
+                            <label for="origin">Origin Node ID:</label>
+                            <input type="number" name="origin" id="origin" required>
                         </div>
                         <div>
-                            <label for="destination">Destination Node ID:</label> 
-                            <input type="number" name="destination" id="destination" required> 
+                            <label for="destination">Destination Node ID:</label>
+                            <input type="number" name="destination" id="destination" required>
+                        </div>
+                        <div>
+                            <label for="speed">Vehicle Speed (km/hr):</label>
+                            <input type="number" name="speed" id="speed" required>
                         </div>
                         <button type="submit">Calculate Route</button>
                     </div>
                 </form>
             </div>
 
+
+        </div>
+
+        <div class="right-container">
             <div class="map">
                 <div id="map-container">
                     {% if map %}
-                        {{ map | safe }}
+                    {{ map | safe }}
                     {% endif %}
                 </div>
             </div>
+
+            {% if edges_data %}
+            <div class="results">
+                <h2>Route Results</h2>
+                <p>Rainfall: {{ rainfall }} mm</p>
+                <p>Origin: {{ origin }}</p>
+                <p>Destination: {{ destination }}</p>
+                <p>Shortest Path: {{ path }}</p>
+                <p>Total Time: {{ total_time }} minutes</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Edge</th>
+                            <th>Length (km)</th>
+                            <th>Time (minutes)</th>
+                            <th>Scenario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for edge_data in edges_data %}
+                        <tr>
+                            <td>{{ edge_data.edge }}</td>
+                            <td>{{ edge_data.length }}</td>
+                            <td>{{ edge_data.time }}</td>
+                            <td>{{ edge_data.scenario }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
         </div>
-
-        {% if edges_data %}
-        <div class="results">
-            <h2>Route Results</h2>
-            <p>Rainfall: {{ rainfall }} mm</p>
-            <p>Origin: {{ origin }}</p>
-            <p>Destination: {{ destination }}</p>
-            <p>Shortest Path: {{ path }}</p>
-            <p>Total Time: {{ total_time }} minutes</p>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Edge</th>
-                        <th>Length (km)</th>
-                        <th>Time (minutes)</th>
-                        <th>Scenario</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for edge_data in edges_data %}
-                    <tr>
-                        <td>{{ edge_data.edge }}</td>
-                        <td>{{ edge_data.length }}</td>
-                        <td>{{ edge_data.time }}</td>
-                        <td>{{ edge_data.scenario }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        {% if error %}
+        <div id="errorModal" class="error-modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <p class="error-message">{{ error }}</p>
+            </div>
         </div>
         {% endif %}
     </div>
 
-    <script>
-        const rainfallSlider = document.getElementById('rainfall');
-        const rainfallValue = document.getElementById('rainfall-value');
-        rainfallSlider.addEventListener('input', () => {
-            rainfallValue.textContent = rainfallSlider.value;
-        });
-    </script>
 </body>
+
 </html>
