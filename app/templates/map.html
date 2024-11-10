@@ -3,7 +3,7 @@
 
 <head>
     <title>Rohingya Rescue Route</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-shpfile@latest/dist/leaflet-shpfile.js"></script>
     <link rel="stylesheet" href="../static/style/style.css">
@@ -21,21 +21,21 @@
                 <h2>Simulator</h2>
                 <form method="POST" action="/">
                     <div class="simulator-rainfall">
-                        <label for="rainfall">Rainfall (mm/hour):</label> 
+                        <label for="rainfall">Rainfall (mm/hour):</label>
                         <input type="range" id="rainfall" name="rainfall" min="0" max="250000" value="0" step="1000">
                         <span id="rainfall-value">0</span> mm/hour
                     </div>
 
                     <div class="toggle-container">
-                        <label for="method-toggle">Model:</label> 
+                        <label for="method-toggle">Model:</label>
                         <label class="switch">
-                            <input type="checkbox" id="method-toggle" name="method_type" value="stochastic"> 
+                            <input type="checkbox" id="method-toggle" name="method_type" value="stochastic">
                             <span class="slider round"></span>
                             <span class="label off">Deterministic</span>
                             <span class="label on">Stochastic</span>
                         </label>
                     </div>
-                    
+
                     <div class="toggle-container">
                         <label for="algorithm-toggle">Algorithm:</label>
                         <label class="switch">
@@ -78,19 +78,29 @@
                 </div>
             </div>
 
-            {% if edges_data %}
             <div class="results">
-                <h2>Route Results</h2>
-                <p>Rainfall: {{ rainfall }} mm</p>
-                <p>Vehicle Speed: {{ speed }} km/hr</p>
-                <p>Algorithm: {{ algorithm }}</p>
-                <p>Method: {{ method_type }}</p>
-                <p>Origin: {{ origin }}</p>
-                <p>Destination: {{ destination }}</p>
-                <p>Path: {{ path }}</p>
-                <p>Total Time: {{ total_time }}</p>
-                <p>Execution Time: {{ execution_time }} minutes</p>
-
+                <h2>Route Results 🗺️</h2> 
+                {% if edges_data %}
+                <div class="overview">
+                    <div class="overview-left">
+                        <p><span style="font-weight: bold; color: #007bff;">🌧️ Rainfall:</span><br> {{ rainfall }} mm </p>
+                        <p><span style="font-weight: bold;color: #007bff;">🚗 Vehicle Speed:</span><br> {{ speed }} km/hr </p>
+                        <p><span style="font-weight: bold;color: #007bff;">🧠 Algorithm:</span><br> {{ algorithm|capitalize }} </p>
+                        <p><span style="font-weight: bold;color: #007bff;">🧪 Method:</span><br> {{ method_type|capitalize }}</p>
+                    </div>
+                    <div class="overview-right">
+                        <p><span style="font-weight: bold;color: #007bff;">🟢 Origin:</span><br> {{ origin }} </p>
+                        <p><span style="font-weight: bold;color: #007bff;">🔴 Destination:</span><br> {{ destination }} </p>
+                        <p><span style="font-weight: bold;color: #007bff;">⏱️ Total Time:</span><br> {{ total_time }} </p>
+                        <p><span style="font-weight: bold;color: #007bff;">⏳ Execution Time:</span><br> {{ execution_time }} minutes</p>
+                    </div>
+                </div>
+            
+                <details>
+                    <summary>🛣️ Path</summary>
+                    {{ path }}
+                </details>
+            
                 <table>
                     <thead>
                         <tr>
@@ -111,8 +121,8 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                {% endif %}
             </div>
-            {% endif %}
         </div>
         {% if error %}
         <div id="errorModal" class="error-modal">

@@ -72,7 +72,7 @@ def index():
                 path=path, 
                 total_time= total_time,
                 edges_data=edges_data,
-                execution_time=round(execution_time,3)
+                execution_time=round(execution_time,5)
             )
 
         except nx.NetworkXNoPath:
