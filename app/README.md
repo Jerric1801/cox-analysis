@@ -45,8 +45,8 @@ cd ..
 ```
 
 ### 4. Build and Run the Docker Container
-
-Run the following script to build and run the container: 
+Ensure that Docker daemon is running first.
+Then run the following script to build and run the container: 
 
 ```bash
 ./start.sh

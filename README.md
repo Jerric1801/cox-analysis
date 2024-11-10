@@ -6,6 +6,8 @@
 
 This project implements a cutting-edge dynamic routing system designed to optimize emergency healthcare and rescue operations in Rohingya refugee camps. Developed as part of SMT481 Smart City Operations Research Final Project by G1T2 AY24/25, this solution integrates advanced probabilistic models and network optimization algorithms to ensure rapid and safe emergency vehicle deployment during disasters.
 
+Go to app/README.md for instructions on starting up the application.
+
 ## Key Features
 
 - **Dynamic Routing**: Adapts to real-time environmental changes and evolving emergency scenarios.
