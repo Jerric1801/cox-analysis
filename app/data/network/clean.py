@@ -27,15 +27,18 @@ merged_df["old_id"] = merged_df["nodeID"]  # Store original IDs
 # --- Identify and update healthcare node IDs ---
 def update_node_id(row):
     try:
-        # Attempt to convert to integer
         int(row["nodeID"])
         return row
     except ValueError:
-        # If not an integer, it's a healthcare node
         row["isHealthcare"] = True
-        row["old_id"] = row["nodeID"]  # Store the original ID
-        row["nodeID"] = len(merged_df) + 1  # Assign a new integer ID
+        row["old_id"] = row["nodeID"]
+        # Assign a new integer ID starting from 63263
+        row["nodeID"] = update_node_id.next_id 
+        update_node_id.next_id += 1
         return row
+
+# Initialize the next available node ID
+update_node_id.next_id = 63263  
 
 merged_df = merged_df.apply(update_node_id, axis=1)
 
