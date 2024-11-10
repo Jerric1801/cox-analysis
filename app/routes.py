@@ -10,8 +10,9 @@ def calculate_edge_time(row, speed, scenario, weights=None):
 
     Sij = speed
     frisk = normalize_DN_mean(row["DN_mean"]) if row["DN_mean"] > 0 else 1
-    lrisk = 1 
+    lrisk = 1  - row["Susceptibi_mean"]
     alpha, beta, gamma = 0.3, 0.4, 0.3
+    lrisk = 1 if lrisk is None or lrisk != lrisk else lrisk  
 
     if weights:  # Stochastic calculation
         Vij = Sij * (
@@ -31,8 +32,14 @@ def calculate_edge_time(row, speed, scenario, weights=None):
     else:  # Deterministic calculation
         fmap = {"10yr": 0.63, "20yr": 0.86, "50yr": 0.95}[scenario]
         Vij = Sij * (1 - alpha * fmap) * (1 - beta * frisk) * (1 - gamma * lrisk)
+        
 
     length_km = row["length"]/1000
+
+    assert frisk >= 0, f"Unexpected frisk value: {frisk}"
+    assert speed > 0, f"Speed must be positive: {speed}"
+    assert Vij > 0, f"Vij should be positive: {Vij}" 
+
 
     return length_km / Vij
 

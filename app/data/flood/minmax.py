@@ -2,12 +2,12 @@ import pandas as pd
 
 # --- Configuration ---
 CSV_FILES = [
-    "edges_i_j_10yr.csv",
-    "edges_i_j_20yr.csv",
-    "edges_i_j_50yr.csv",
+    "edges_i_j_10yr_joined.csv",
+    "edges_i_j_20yr_joined.csv",
+    "edges_i_j_50yr_joined.csv",
 ]
 COLUMN_NAME = "DN_mean"  # Replace with the actual column name
-
+# COLUMN_NAME = "Susceptibi_mean" 
 # --- Find Min and Max ---
 min_values = []
 max_values = []

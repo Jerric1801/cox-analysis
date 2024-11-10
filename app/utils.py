@@ -46,7 +46,7 @@ def normalize_DN_mean(DN_mean):
   Returns:
     The normalized DN_mean value between 0 and 1.
   """
-  min_value = 5.999
-  max_value = 9.001
+  min_value = 6.0 
+  max_value = 9.0 
   normalized_value = (DN_mean - min_value) / (max_value - min_value)
   return normalized_value

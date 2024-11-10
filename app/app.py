@@ -12,9 +12,9 @@ app = Flask(__name__)
 # --- Data Loading ---
 NODE_DATA_PATH = "./data/network/nodes.csv"
 ROAD_DATA_PATHS = {
-    "10yr": "./data/flood/edges_i_j_10yr.csv",
-    "20yr": "./data/flood/edges_i_j_20yr.csv",
-    "50yr": "./data/flood/edges_i_j_50yr.csv"
+    "10yr": "./data/flood/edges_i_j_10yr_joined.csv",
+    "20yr": "./data/flood/edges_i_j_20yr_joined.csv",
+    "50yr": "./data/flood/edges_i_j_50yr_joined.csv"
 }
 
 node_df = pd.read_csv(NODE_DATA_PATH)
