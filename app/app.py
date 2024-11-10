@@ -84,13 +84,13 @@ def index():
 
     else: 
 
-        healthcare_centers = node_df[node_df["isHealthcare"] == True]
-        for _, row in healthcare_centers.iterrows():
-            folium.Marker(
-                location=[row["xCoord"], row["yCoord"]],
-                tooltip=f"Healthcare Center (ID: {row['nodeID']})",  # Show node ID
-                icon=folium.Icon(color="red", icon="plus"),  # Use a different icon
-            ).add_to(m)
+        # healthcare_centers = node_df[node_df["isHealthcare"] == True]
+        # for _, row in healthcare_centers.iterrows():
+        #     folium.Marker(
+        #         location=[row["xCoord"], row["yCoord"]],
+        #         tooltip=f"Healthcare Center (ID: {row['nodeID']})",  # Show node ID
+        #         icon=folium.Icon(color="red", icon="plus"),  # Use a different icon
+        #     ).add_to(m)
 
         return render_template("map.html", map=m._repr_html_(), nodes=node_df.to_dict('records'), error=None)
 
