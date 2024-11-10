@@ -11,9 +11,11 @@ RUN poetry install --no-interaction --no-ansi
 COPY app/ .
 
 ENV FLASK_APP=app.py
+ENV FLASK_ENV=development
 
 # Expose port 3001
 EXPOSE 3001
 
 # Run the Flask app on port 3001
-CMD ["flask", "run", "--host=0.0.0.0", "--port=3001"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=3001", "--debug"]
+

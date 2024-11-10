@@ -348,3 +348,11 @@ input:checked + .slider + .label.on { /* Show Heuristic label when checked */
 #algorithm-toggle:checked ~ .label.on {
     opacity: 1;
 }
+
+#method-toggle:checked ~ .label.off { 
+    opacity: 0.5;
+}
+
+#method-toggle:checked ~ .label.on {
+    opacity: 1;
+}

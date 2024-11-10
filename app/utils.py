@@ -17,22 +17,20 @@ def calculate_optimal_route(graph, origin, destination, fmap, frisk, lrisk):
     return path, total_time
 
 def convert_time(total_hours):
-  """Converts total time in hours (float) to hours, minutes, and seconds.
+  """Converts total time in hours (float) to total minutes (integer).
 
   Args:
     total_hours: The total time in hours as a float.
 
   Returns:
-    A string representing the time in HH:MM:SS format.
+    An integer representing the total time in minutes.
   """
-  hours = int(total_hours)
-  minutes = int((total_hours - hours) * 60)
-  seconds = int(((total_hours - hours) * 60 - minutes) * 60)
-  return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
+  total_minutes = total_hours * 60  # Convert hours to minutes
+  return total_minutes
 
 
 def normalize_DN_mean(DN_mean):
-  """Normalizes DN_mean values to a 0-1 range.
+  """Normalizes DN_mean values to a 0-1 range. Values between 6 & 9
 
   Args:
     DN_mean: The original DN_mean value.
@@ -40,7 +38,7 @@ def normalize_DN_mean(DN_mean):
   Returns:
     The normalized DN_mean value between 0 and 1.
   """
-  min_value = 6.5
-  max_value = 9
+  min_value = 5.999
+  max_value = 9.001
   normalized_value = (DN_mean - min_value) / (max_value - min_value)
   return normalized_value

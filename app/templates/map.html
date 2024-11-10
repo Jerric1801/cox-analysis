@@ -27,11 +27,20 @@
                     </div>
 
                     <div class="toggle-container">
+                        <label for="method-toggle">Model:</label> 
+                        <label class="switch">
+                            <input type="checkbox" id="method-toggle" name="method_type" value="stochastic"> 
+                            <span class="slider round"></span>
+                            <span class="label off">Deterministic</span>
+                            <span class="label on">Stochastic</span>
+                        </label>
+                    </div>
+                    
+                    <div class="toggle-container">
                         <label for="algorithm-toggle">Algorithm:</label>
                         <label class="switch">
                             <input type="checkbox" id="algorithm-toggle" name="algorithm" value="heuristic">
-                            <span class="slider round">
-                            </span>
+                            <span class="slider round"></span>
                             <span class="label off">Dijkstra</span>
                             <span class="label on">Heuristic</span>
                         </label>
@@ -73,6 +82,9 @@
             <div class="results">
                 <h2>Route Results</h2>
                 <p>Rainfall: {{ rainfall }} mm</p>
+                <p>Vehicle Speed: {{ speed }} km/hr</p>
+                <p>Algorithm: {{ algorithm }}</p>
+                <p>Method: {{ method_type }}</p>
                 <p>Origin: {{ origin }}</p>
                 <p>Destination: {{ destination }}</p>
                 <p>Shortest Path: {{ path }}</p>
@@ -83,7 +95,7 @@
                     <thead>
                         <tr>
                             <th>Edge</th>
-                            <th>Length (km)</th>
+                            <th>Length (m)</th>
                             <th>Time (hours)</th>
                             <th>Scenario</th>
                         </tr>
