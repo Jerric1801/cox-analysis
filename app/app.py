@@ -6,11 +6,16 @@ import networkx as nx
 import folium
 from utils import convert_time
 from routes import create_graph, calculate_route, prepare_route_data, add_route_to_map 
+import random
+import matplotlib.pyplot as plt
+import seaborn as sns
+import io
+import base64
 
 app = Flask(__name__)
 
 # --- Data Loading ---
-NODE_DATA_PATH = "./data/network/nodes.csv"
+NODE_DATA_PATH = "./data/network/filtered_nodes.csv"
 ROAD_DATA_PATHS = {
     "10yr": "./data/flood/edges_i_j_10yr_joined.csv",
     "20yr": "./data/flood/edges_i_j_20yr_joined.csv",
@@ -72,7 +77,7 @@ def index():
                 path=path, 
                 total_time= total_time,
                 edges_data=edges_data,
-                execution_time=round(execution_time,5)
+                execution_time=execution_time
             )
 
         except nx.NetworkXNoPath:
@@ -93,6 +98,64 @@ def index():
         #     ).add_to(m)
 
         return render_template("map.html", map=m._repr_html_(), nodes=node_df.to_dict('records'), error=None)
+    
+
+@app.route("/simulation", methods=["GET"])
+def simulation():
+    num_simulations = 1000  # You can increase this for more accurate results
+    rainfall = 500     
+    speed = 60           
+    algorithm = "heuristic"  
+    method_type = "deterministic"  
+
+    G = create_graph(rainfall, speed, method_type, node_df, road_data)
+
+    results = []
+    no_path_count = 0
+
+    for _ in range(num_simulations):
+        origin = random.choice(node_df['nodeID'].tolist())
+        destination = random.choice(node_df['nodeID'].tolist())
+        while origin == destination:  # Ensure origin and destination are different
+            destination = random.choice(node_df['nodeID'].tolist())
+
+        try:
+            path, execution_time = calculate_route(G, origin, destination, algorithm)
+            total_time = nx.shortest_path_length(G, source=origin, target=destination, weight="time")
+            total_time = convert_time(total_time)
+            results.append({
+                "origin": origin,
+                "destination": destination,
+                "total_time": total_time,
+                "execution_time": execution_time
+            })
+        except nx.NetworkXNoPath:
+            no_path_count += 1
+
+    drop_out_rate = (no_path_count / num_simulations) * 100
+    print(drop_out_rate)    
+    # Generate charts and graphs
+    # img = io.BytesIO()
+    # plt.figure(figsize=(8, 6))
+    # sns.histplot([result['total_time'] for result in results], kde=True)
+    # plt.xlabel("Total Travel Time")
+    # plt.ylabel("Frequency")
+    # plt.title("Distribution of Travel Times")
+    # plt.savefig(img, format='png')
+    # plt.close()
+    # img.seek(0)
+    # plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+
+    # Render the simulation results template
+    return render_template(
+        "simulation_results.html", 
+        results=results, 
+        # plot_url=plot_url,
+        rainfall=rainfall, 
+        speed=speed,
+        algorithm=algorithm,
+        method_type=method_type
+    )
 
 if __name__ == "__main__":
     os.environ["FLASK_APP"] = "app.py"

@@ -28,7 +28,9 @@ body {
     /* White background for input container */
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
     /* Subtle shadow for depth */
+    padding-bottom: 10vh;
 }
 
 .inputs-container h2 {

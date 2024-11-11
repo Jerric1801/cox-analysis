@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monte Carlo Simulation Results</title>
+</head>
+<body>
+    <h1>Monte Carlo Simulation Results</h1>
+
+    <h2>Parameters</h2>
+    <p>Rainfall: {{ rainfall }}</p>
+    <p>Speed: {{ speed }}</p>
+    <p>Algorithm: {{ algorithm }}</p>
+    <p>Method Type: {{ method_type }}</p>
+
+    <h2>Results</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Total Time</th>
+                <th>Execution Time (ms)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result.origin }}</td>
+                    <td>{{ result.destination }}</td>
+                    <td>{{ result.total_time }}</td>
+                    <td>{{ result.execution_time }}</td> 
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Distribution of Travel Times</h2>
+    <!-- <img src="data:image/png;base64,{{ plot_url }}" alt="Travel Time Distribution"> -->
+
+</body>
+</html>

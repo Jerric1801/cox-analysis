@@ -25,7 +25,7 @@ def process_road_csv(road_csv_path, output_filename):
         "yCoord": "node1_Ycoord",
         "isHealthcare": "isHealthcare1"
     })
-    road_df = road_df.drop(columns=["old_id"])  # Drop the 'old_id' column
+    road_df = road_df.drop(columns=["old_id"], errors='ignore')  # Drop the 'old_id' column
 
     road_df = pd.merge(road_df, node_df, left_on="node2", right_on="old_id", how="left")
     road_df = road_df.rename(columns={
@@ -33,7 +33,16 @@ def process_road_csv(road_csv_path, output_filename):
         "yCoord": "node2_Ycoord",
         "isHealthcare": "isHealthcare2"
     })
-    road_df = road_df.drop(columns=["old_id"])  # Drop the 'old_id' column
+    road_df = road_df.drop(columns=["old_id"], errors='ignore')  # Drop the 'old_id' column
+
+    # --- Filter out rows where EITHER node mapping failed --- 
+    road_df = road_df.dropna(subset=["nodeID_x", "nodeID_y"])  
+
+    # --- Get unique node IDs from the FILTERED road data ---
+    used_nodes = pd.unique(road_df[['nodeID_x', 'nodeID_y']].values.ravel('K')) 
+
+    # --- Filter the node DataFrame to keep only the used nodes ---
+    filtered_node_df = node_df[node_df['nodeID'].isin(used_nodes)]
 
     # Select only the desired columns and rename nodeID to node1 and node2
     road_df = road_df[[
@@ -46,7 +55,8 @@ def process_road_csv(road_csv_path, output_filename):
         "nodeID_y": "node2"
     })
 
-    road_df = road_df.dropna(subset=["node1", "node2"])
+    # --- Save the filtered node DataFrame to a new CSV ---
+    filtered_node_df.to_csv("filtered_nodes.csv", index=False)  # You can change the filename as needed
 
     # Save the cleaned DataFrame
     road_df.to_csv(output_filename, index=False) 

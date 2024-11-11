@@ -84,8 +84,8 @@ def add_edges_to_graph(G, df, speed, scenario, weights=None):
                     G[row["node1"]][row["node2"]]["scenario"] = scenario
             else:
                 G.add_edge(
-                    row["node1"],
-                    row["node2"],
+                    int(row["node1"]),
+                    int(row["node2"]),
                     length=row["length"],
                     time=time_taken,
                     scenario=scenario,
@@ -97,11 +97,40 @@ def add_edges_to_graph(G, df, speed, scenario, weights=None):
 
 
 # --- Route Calculation and Map Visualization ---
+# def heuristic(a, b, G):
+#     """Heuristic function for A* algorithm."""
+#     a_x, a_y = G.nodes[a]["pos"]
+#     b_x, b_y = G.nodes[b]["pos"]
+#     return ((a_x - b_x) ** 2 + (a_y - b_y) ** 2) ** 0.5
+
 def heuristic(a, b, G):
-    """Heuristic function for A* algorithm."""
-    a_x, a_y = G.nodes[a]["pos"]
-    b_x, b_y = G.nodes[b]["pos"]
-    return ((a_x - b_x) ** 2 + (a_y - b_y) ** 2) ** 0.5
+  """Manhattan distance heuristic for A* algorithm."""
+  a_x, a_y = G.nodes[a]["pos"]
+  b_x, b_y = G.nodes[b]["pos"]
+  return abs(a_x - b_x) + abs(a_y - b_y)
+
+# import random
+
+# def heuristic(a, b, G):
+#   """
+#   A non-admissible heuristic that randomly overestimates 
+#   the distance to the goal, leading to unpredictable and 
+#   potentially suboptimal paths.
+#   """
+#   a_x, a_y = G.nodes[a]["pos"]
+#   b_x, b_y = G.nodes[b]["pos"]
+#   distance = ((a_x - b_x) ** 2 + (a_y - b_y) ** 2) ** 0.5
+#   return distance * (1 + random.uniform(0, 1)) 
+
+# def heuristic(a, b, G):
+#   """
+#   A greedy heuristic that heavily favors nodes closer to the goal 
+#   in terms of Euclidean distance, potentially leading to suboptimal paths.
+#   """
+#   a_x, a_y = G.nodes[a]["pos"]
+#   b_x, b_y = G.nodes[b]["pos"]
+#   distance = ((a_x - b_x) ** 2 + (a_y - b_y) ** 2) ** 0.5
+#   return distance * 0.1
 
 
 def add_route_to_map(m, G, path):
@@ -132,7 +161,19 @@ def calculate_route(G, origin, destination, algorithm):
     else:
         raise ValueError("Invalid algorithm selected.")
     end_time = time.time()
-    return path, end_time - start_time
+    execution_time_seconds = end_time - start_time
+
+    # Format the time for better presentation
+    if execution_time_seconds < 1:
+        execution_time_ms = execution_time_seconds * 1000  # Convert to milliseconds
+        execution_time_str = f"{execution_time_ms:.2f} milliseconds"
+    else:
+        execution_time_str = f"{execution_time_seconds:.2f} seconds"
+
+    return path, execution_time_str
+
+
+
 
 
 def prepare_route_data(G, path):
