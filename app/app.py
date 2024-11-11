@@ -47,6 +47,13 @@ def index():
         try:
             path, execution_time = calculate_route(G, origin, destination, algorithm)
 
+            if execution_time < 1:
+                execution_time_ms = execution_time * 1000  # Convert to milliseconds
+                execution_time_str = f"{execution_time_ms:.2f} milliseconds"
+            else:
+                execution_time_str = f"{execution_time:.2f} seconds"
+
+
             total_time = nx.shortest_path_length(
                 G, source=origin, target=destination, weight="time"
             )
@@ -77,7 +84,7 @@ def index():
                 path=path, 
                 total_time= total_time,
                 edges_data=edges_data,
-                execution_time=execution_time
+                execution_time=execution_time_str 
             )
 
         except nx.NetworkXNoPath:
@@ -88,74 +95,70 @@ def index():
             ) 
 
     else: 
-
-        # healthcare_centers = node_df[node_df["isHealthcare"] == True]
-        # for _, row in healthcare_centers.iterrows():
-        #     folium.Marker(
-        #         location=[row["xCoord"], row["yCoord"]],
-        #         tooltip=f"Healthcare Center (ID: {row['nodeID']})",  # Show node ID
-        #         icon=folium.Icon(color="red", icon="plus"),  # Use a different icon
-        #     ).add_to(m)
-
         return render_template("map.html", map=m._repr_html_(), nodes=node_df.to_dict('records'), error=None)
     
 
-@app.route("/simulation", methods=["GET"])
+@app.route("/simulation", methods=["GET", "POST"])
 def simulation():
-    num_simulations = 1000  # You can increase this for more accurate results
-    rainfall = 500     
-    speed = 60           
-    algorithm = "heuristic"  
-    method_type = "deterministic"  
+    if request.method == "POST":
+        # Get parameters from the form
+        num_simulations = int(request.form.get("num_simulations", 1000))
+        rainfall = int(request.form.get("rainfall", 500))
+        speed = int(request.form.get("speed", 60))
+        algorithm = request.form.get("algorithm", "heuristic")
+        method_type = request.form.get("method_type", "deterministic")
 
-    G = create_graph(rainfall, speed, method_type, node_df, road_data)
+        G = create_graph(rainfall, speed, method_type, node_df, road_data)
 
-    results = []
-    no_path_count = 0
+        results = []
+        no_path_count = 0
 
-    for _ in range(num_simulations):
-        origin = random.choice(node_df['nodeID'].tolist())
-        destination = random.choice(node_df['nodeID'].tolist())
-        while origin == destination:  # Ensure origin and destination are different
+        for _ in range(num_simulations):
+            origin = random.choice(node_df['nodeID'].tolist())
             destination = random.choice(node_df['nodeID'].tolist())
+            while origin == destination:  # Ensure origin and destination are different
+                destination = random.choice(node_df['nodeID'].tolist())
 
-        try:
-            path, execution_time = calculate_route(G, origin, destination, algorithm)
-            total_time = nx.shortest_path_length(G, source=origin, target=destination, weight="time")
-            total_time = convert_time(total_time)
-            results.append({
-                "origin": origin,
-                "destination": destination,
-                "total_time": total_time,
-                "execution_time": execution_time
-            })
-        except nx.NetworkXNoPath:
-            no_path_count += 1
+            try:
+                path, execution_time = calculate_route(G, origin, destination, algorithm)
+                total_time = nx.shortest_path_length(G, source=origin, target=destination, weight="time")
+                results.append({
+                    "origin": origin,
+                    "destination": destination,
+                    "total_time": total_time,
+                    "execution_time": execution_time
+                })
+            except nx.NetworkXNoPath:
+                no_path_count += 1
+        
 
-    drop_out_rate = (no_path_count / num_simulations) * 100
-    print(drop_out_rate)    
-    # Generate charts and graphs
-    # img = io.BytesIO()
-    # plt.figure(figsize=(8, 6))
-    # sns.histplot([result['total_time'] for result in results], kde=True)
-    # plt.xlabel("Total Travel Time")
-    # plt.ylabel("Frequency")
-    # plt.title("Distribution of Travel Times")
-    # plt.savefig(img, format='png')
-    # plt.close()
-    # img.seek(0)
-    # plot_url = base64.b64encode(img.getvalue()).decode('utf8')
+        analysis = {
+            "overall_avg_time": convert_time(sum(result['total_time'] for result in results) / len(results)),
+            "overall_avg_exec_time": f"{((sum(result['execution_time'] for result in results) / len(results)) * 1000):.2f} ms",
+            "drop_out_rate": (no_path_count / num_simulations) * 100 
+        }
 
-    # Render the simulation results template
-    return render_template(
-        "simulation_results.html", 
-        results=results, 
-        # plot_url=plot_url,
-        rainfall=rainfall, 
-        speed=speed,
-        algorithm=algorithm,
-        method_type=method_type
-    )
+
+        drop_out_rate = (no_path_count / num_simulations) * 100
+        print(drop_out_rate)    
+
+        return render_template(
+            "simulation_results.html", 
+            results=results, 
+            analysis=analysis,
+            # plot_url=plot_url,
+            rainfall=rainfall, 
+            speed=speed,
+            algorithm=algorithm,
+            method_type=method_type
+        )
+    else:  # GET request
+        # Render the template with the form and default values
+        return render_template(
+            "simulation_results.html", 
+            results=[] , # No results to display initially
+            analysis=[]
+        )
 
 if __name__ == "__main__":
     os.environ["FLASK_APP"] = "app.py"

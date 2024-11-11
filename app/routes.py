@@ -164,13 +164,7 @@ def calculate_route(G, origin, destination, algorithm):
     execution_time_seconds = end_time - start_time
 
     # Format the time for better presentation
-    if execution_time_seconds < 1:
-        execution_time_ms = execution_time_seconds * 1000  # Convert to milliseconds
-        execution_time_str = f"{execution_time_ms:.2f} milliseconds"
-    else:
-        execution_time_str = f"{execution_time_seconds:.2f} seconds"
-
-    return path, execution_time_str
+    return path, execution_time_seconds
 
 
 
