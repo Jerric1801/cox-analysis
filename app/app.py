@@ -150,7 +150,8 @@ def simulation():
             rainfall=rainfall, 
             speed=speed,
             algorithm=algorithm,
-            method_type=method_type
+            method_type=method_type,
+            num_simulations=num_simulations 
         )
     else:  # GET request
         # Render the template with the form and default values
