@@ -65,9 +65,9 @@ def create_graph(rainfall, speed, method_type, node_df, road_data):
 
 def determine_scenario(rainfall):
     """Determines the flood scenario based on rainfall."""
-    if 0 <= rainfall <= 160000:
+    if 0 <= rainfall <= 26:
         return "10yr"
-    elif rainfall <= 180000:
+    elif rainfall <= 32:
         return "20yr"
     else:
         return "50yr"
