@@ -35,6 +35,35 @@ Reload your shell configuration:
 source ~/.bash_profile  # or ~/.bashrc or ~/.zshrc
 ```
 
+Alternatively, if you're using Conda virtual environment:
+
+
+1. **Activate your Conda environment**:
+   ```bash
+   conda activate your_env_name
+   ```
+
+2. **Install Poetry using pip**:
+   Poetry can be installed directly via pip within your Conda environment:
+   ```bash
+   pip install poetry
+   ```
+
+3. **Verify the installation**:
+   Check if Poetry is installed correctly by running:
+   ```bash
+   poetry --version
+   ```
+
+4. **(Optional) Add Poetry to PATH**:
+   If Poetry is not recognized, ensure the Conda environment's `bin` directory is in your PATH:
+   ```bash
+   export PATH="$CONDA_PREFIX/bin:$PATH"
+   ```
+
+Now, you can use Poetry within your Conda virtual environment.
+
+
 ### 3. Generate poetry.lock
 Navigate to the app directory and generate the poetry.lock file:
 
